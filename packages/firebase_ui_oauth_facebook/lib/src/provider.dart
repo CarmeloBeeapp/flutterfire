@@ -69,7 +69,7 @@ class FacebookProvider extends OAuthProvider {
 
   @override
   void mobileSignIn(AuthAction action) {
-    final result = provider.login();
+    final result = provider.login(loginBehavior: LoginBehavior.webOnly);
     result
         .then((result) => _handleResult(result, action))
         .catchError(authListener.onError);
